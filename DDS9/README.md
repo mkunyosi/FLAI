@@ -1,15 +1,28 @@
-# Sobre este repositório
+# 9ª Competição de Machine Learning FLAI
 Este repositório contém arquivos relacionados à 9ª Competição de Machine Learning realizada pela FLAI em junho de 2022. 
 
 Nesta competição obtvie a 3ª posição na classificação geral.
 
 A competição em questão era sobre um problema de previsão de demanda de aluguéis de bicicletas (problema de regressão). Foi fornecido um conjunto de dados com o histórico de características e as respectivas demandas (dados de treinamento). O desafio era predizer demandas para um outro conjunto de daos (dados de teste). Para avaliação na competição e comparação de resultados entre os demais participantes foi usada a métrica de RMSE (raiz quadrada da média dos erros quadráticos).
 
-# Detalhes da competição
+*******
+Conteúdo
+ 1. [Detalhes da competição](#comp_details)
+ 2. [Como o trabalho foi estruturado](#work_structure)
+ 3. [Principais insights](#insights)
+ 4. [Modelo de Machine Learning](#ml_model)
+ 5. [Principais aprendizados](#learnings)
+ 
+*******
+<div id='comp_details'/>  
+
+## Detalhes da competição
 **Problema** : Trata-se de um conjunto de dados para previsão da quantidade de aluguéis de bicicleta a partir de variáveis do dia e do clima!
 
 **Detalhes técnicos**
 * Dados de treinamento (4500, 11): variável resposta “aluguéis”
+<br></br>
+* hora	dia	feriado	estação	temperatura	chuva	umidade	sol	visibilidade	vento	aluguéis
 * Dados de teste (3000, 10): não contém a variável resposta
 * Métrica alvo: o modelo com o menor RMSE
 
@@ -18,12 +31,14 @@ A competição em questão era sobre um problema de previsão de demanda de alug
 * O ranking da competição era atualizado à medida em que novas submissões fossem feitas. 
 * A única submissão que conta é a que tiver o melhor desempenho.
 
-# Como o notebook está estruturado
-Em linhas gerais, a figura abaixo ilustra como foi estruturado o trabalho durante a competição.
+<div id='work_structure'/>  
+
+## Como o trabalho foi estruturado
+A figura "Estrutura geral" ilustra como foi estruturado o trabalho durante a competição. Inicialmente, foi feita a análise exploratória dos dados de treinamento (EDA -  Exploratory Data Analysis) com o objetivo de se buscar quais variáveis continham mais informações para predição da variável resposta.
 
 A partir de dados 
 
-- Estrutura geral do trabalho
+- Estrutura geral
 	```mermaid 
     flowchart TB
         subgraph Main[Processamento dos dados e dos algoritmos de ML]
@@ -122,3 +137,19 @@ Para faciliar o entendimento do código, considere a estrutura abaixo ilustrada.
             E1[métricas] --> |exportação| E2[Arquivos Excel]
             E1[métricas] --> |plotagem| E3[Gráficos]
         end
+
+
+
+<div id='insights'/>  
+
+## Principais insights
+
+<div id='ml_model'/>  
+
+## Modelo de Machine Learning
+
+
+
+<div id='learnings'/>  
+ 
+## Principais aprendizados
