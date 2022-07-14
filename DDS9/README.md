@@ -8,7 +8,7 @@ A competição em questão era sobre um problema de previsão de demanda de alug
 *******
 Conteúdo
  1. [Detalhes da competição](#comp_details)
- 2. [Como o trabalho foi estruturado](#work_structure)
+ 2. [Como o trabalho foi desenvolvido](#work_structure)
  3. [Principais insights](#insights)
  4. [Modelo de Machine Learning](#ml_model)
  5. [Principais aprendizados](#learnings)
@@ -21,19 +21,35 @@ Conteúdo
 
 **Detalhes técnicos**
 * Dados de treinamento (4500, 11): variável resposta “aluguéis”
-<br></br>
-* hora	dia	feriado	estação	temperatura	chuva	umidade	sol	visibilidade	vento	aluguéis
+<br><br/>
+**Variáveis independentes:**  
+**hora**: faixa horária [0, 23]      
+**dia**: dia da semana [domingo, segunda, terça, quarta, quinta, sexta, sábado]   
+**feriado**: indica se o dia é um feriado [sim, não]      
+**estação**:  estação do ano [primavera, verão , outono, inverno]     
+**temperatura**: temperatura observada (graus Celsius)[6.5, 44.6]   
+**chuva**: quantidade chuva precipitada (mm) [0, 27.65]   
+**umidade**: umidade relativa no ar [18,1, 92]      
+**sol**: incidência de radiação solar (?) [0, 3.52]  
+**visibilidade**: quanto pode ser visto num certo teste de distância (?) [0, 97%]      
+**vento**: velocidade do vento (m/s) [0.25, 9.13]    
+<br><br/>
+**Variável dependente:**   
+**aluguéis**: variável resposta (a ser predita com os dados de teste)   
+
 * Dados de teste (3000, 10): não contém a variável resposta
+<br><br/>
+Mesmas variáveis independentes dos dados de treinamento.   
+
 * Métrica alvo: o modelo com o menor RMSE
 
 **Dinâmica da competição**
 * Envio de até 10 submissões, respeitando a data limite da competição. 
 * O ranking da competição era atualizado à medida em que novas submissões fossem feitas. 
 * A única submissão que conta é a que tiver o melhor desempenho.
-
 <div id='work_structure'/>  
 
-## Como o trabalho foi estruturado
+## Como o trabalho foi desenvolvido
 A figura "Estrutura geral" ilustra como foi estruturado o trabalho durante a competição. Inicialmente, foi feita a análise exploratória dos dados de treinamento (EDA -  Exploratory Data Analysis) com o objetivo de se buscar quais variáveis continham mais informações para predição da variável resposta.
 
 A partir de dados 
