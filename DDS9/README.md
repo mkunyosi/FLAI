@@ -1,19 +1,29 @@
-Este repositório contém arquivos relacionados à 9ª Competição de Machine Learning realizada pela FLAI em junho de 2022.
+# Sobre este repositório
+Este repositório contém arquivos relacionados à 9ª Competição de Machine Learning realizada pela FLAI em junho de 2022. 
 
-A competição em questão era sobre um problema de previsão de demanda de aluguéis de bicicletas. Foi fornecido um conjunto de treinamento com o histórico de características e as respectivas demandas. O desafio era predizer demandas para um conjunto de teste. Para avaliação na competição a métrica adotada foi a RMSE (raiz quadrada da média dos erros quadráticos)
+Nesta competição obtvie a 3ª posição na classificação geral.
 
+A competição em questão era sobre um problema de previsão de demanda de aluguéis de bicicletas (problema de regressão). Foi fornecido um conjunto de dados com o histórico de características e as respectivas demandas (dados de treinamento). O desafio era predizer demandas para um outro conjunto de daos (dados de teste). Para avaliação na competição e comparação de resultados entre os demais participantes foi usada a métrica de RMSE (raiz quadrada da média dos erros quadráticos).
 
-A dinâmica da 9ª competição foi bastante curiosa, pois trabalhei o tempo todo considerando "boas práticas" no tratamento dos dados visando a melhoria do score na validação cruzada (CV), porém, para minha frustação, ao enviar as subs o resultado não melhorava.
+# Detalhes da competição
+**Problema** : Trata-se de um conjunto de dados para previsão da quantidade de aluguéis de bicicleta a partir de variáveis do dia e do clima!
 
-Na última sub "chutei o balde" e retirei um tratamento de outliers que estava fazendo e enviei a sub considerando todos os dados, ou seja, incluindo os outliers. Obtive o meu melhor score, porém descobri isso somente com o anúncio dos vencedores da competição!
+**Detalhes técnicos**
+* Dados de treinamento (4500, 11): variável resposta “aluguéis”
+* Dados de teste (3000, 10): não contém a variável resposta
+* Métrica alvo: o modelo com o menor RMSE
 
-Depois de finalizada a competição ainda fiz outras avaliações para tentar entender o motivo da melhoria, porém ainda não fechei as conclusões.
+**Dinâmica da competição**
+* Envio de até 10 submissões, respeitando a data limite da competição. 
+* O ranking da competição era atualizado à medida em que novas submissões fossem feitas. 
+* A única submissão que conta é a que tiver o melhor desempenho.
 
-O código aqui apresentado não é usual em exemplos de códigos de machine learning. Boa parte das tarefas foram encapsulada em funções, assim o entendimento do código pode não ser simples para usuários com menos experiência em python, ou em linguagens de programação de forma geral.
+# Como o notebook está estruturado
+Em linhas gerais, a figura abaixo ilustra como foi estruturado o trabalho durante a competição.
 
-Para faciliar o entendimento do código, considere a estrutura abaixo ilustrada.
+A partir de dados 
 
-- Como o notebook está estruturado
+- Estrutura geral do trabalho
 	```mermaid 
     flowchart TB
         subgraph Main[Processamento dos dados e dos algoritmos de ML]
@@ -45,6 +55,20 @@ Para faciliar o entendimento do código, considere a estrutura abaixo ilustrada.
 		SUB_C --> |métricas| Support
 		SUB_D --> |métricas| Support
 	```
+
+
+
+
+A dinâmica da 9ª competição foi bastante curiosa, pois trabalhei o tempo todo considerando "boas práticas" no tratamento dos dados visando a melhoria do score na validação cruzada (CV), porém, para minha frustação, ao enviar as subs o resultado não melhorava.
+
+Na última sub "chutei o balde" e retirei um tratamento de outliers que estava fazendo e enviei a sub considerando todos os dados, ou seja, incluindo os outliers. Obtive o meu melhor score, porém descobri isso somente com o anúncio dos vencedores da competição!
+
+Depois de finalizada a competição ainda fiz outras avaliações para tentar entender o motivo da melhoria, porém ainda não fechei as conclusões.
+
+O código aqui apresentado não é usual em exemplos de códigos de machine learning. Boa parte das tarefas foram encapsulada em funções, assim o entendimento do código pode não ser simples para usuários com menos experiência em python, ou em linguagens de programação de forma geral.
+
+Para faciliar o entendimento do código, considere a estrutura abaixo ilustrada.
+
 
 
 - Módulo: Funções personalizadas
