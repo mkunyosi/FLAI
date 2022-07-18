@@ -2,9 +2,9 @@
 <div id='top'/>  
 
 # 9ª Competição de Machine Learning FLAI
-Este repositório contém arquivos relacionados à 9ª Competição de Machine Learning realizada pela FLAI em junho de 2022. 
+Este repositório contém arquivos relacionados à 9ª Competição de Machine Learning realizada pela [FLAI](https://www.flai.com.br/) em junho de 2022. 
 
-O trabalho aqui apresentado conquistou a 3ª posição na classificação geral.
+O trabalho aqui apresentado conquistou a 3ª posição na classificação geral, sendo o prêmio o livro [Análise de Séries Temporais: Modelos Lineares Univariados (Volume 1)](https://www.amazon.com.br/An%C3%A1lise-S%C3%A9ries-Temporais-Lineares-Univariados/dp/8521213514/ref=asc_df_8521213514/?tag=googleshopp00-20&linkCode=df0&hvadid=379712528301&hvpos=&hvnetw=g&hvrand=7634287281072666290&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001773&hvtargid=pla-810564891759&psc=1).
 
 A competição era sobre um problema de previsão de demanda de aluguéis de bicicletas, o qual é um problema de regressão dentro do contexto de machine learning. Para treinar um modelo foi fornecido um conjunto de dados com o histórico de características e as respectivas demandas de aluguéis. O desafio era predizer as demandas de aluguéis para um outro conjunto de dados. Para a avaliação de desempenho na competição e comparação de resultados entre os demais participantes foi usada a métrica de RMSE (raiz quadrada da média dos erros quadráticos).
 
@@ -21,12 +21,14 @@ Conteúdo
 <div id='comp_details'/>  
 
 ## Detalhes técnicos da competição
+A 9ª Competição de Machine Learning foi lançada pela FLAI no final de maio de 2022. Na ocasião o [prof. Ricardo Rocha](https://github.com/ricardorocha86) promoveu uma live para explicar a dinâmica da competição e também divulgou um [PDF](https://github.com/mkunyosi/FLAI/blob/learning/DDS9/INSTRU%C3%87%C3%95ES%209%C2%AA%20COMPETI%C3%87%C3%83O%20DE%20MACHINE.pdf) com as regras e os _links_ pertinentes à competição.
+
 **Problema** : Dado um conjunto de índices sobre clima pedia-se para fazer a previsão de demanda de quantidade de aluguéis de bicicleta
 
 **Detalhes técnicos**
 * Dados de treinamento: 4500 amostras formadas por 11 variáveis   
 <br><br/>
-Variáveis independentes:     
+**Variáveis independentes:**     
 **hora**: faixa horária [0, 23]      
 **dia**: dia da semana [domingo, segunda, terça, quarta, quinta, sexta, sábado]   
 **feriado**: indica se o dia é um feriado [sim, não]      
@@ -56,9 +58,9 @@ Mesmas variáveis independentes dos dados de treinamento.
 
 
 ## Como o trabalho foi desenvolvido <p align="right"> [:top:](#top) </p>
-O código aqui apresentado não é usual em exemplos de códigos de machine learning. Boa parte das tarefas foram encapsulada em funções, assim o entendimento do código pode não ser simples para usuários com menos experiência em python, ou em linguagens de programação de forma geral.
+O código desenvolvido não é usual em exemplos de machine learning. Boa parte das tarefas foram encapsulada em funções, assim o entendimento do código pode não ser simples para usuários com menos experiência em Python, ou em linguagens de programação. Para facilitar o entendimento do código, nesta introdução são explicados como o código está estruturado. Dessa forma, com um pouco de paciência, os interessados nesse código consiguirão os motivos do notebook ter tantas funções.
 
-A figura "Estrutura geral" ilustra como foi estruturado o trabalho durante a competição. Na verdade, a estrutra apresentada tem como objetivo ilustrar cada etapa do processo, porém não necessariamente elas foram executadas de forma serial. Durante os trabalhos, dependendo da necessidade, dentro de uma outra etapa foi realizado alguma atividade. Por exemplo, na tentativa de melhoria do desempenho, o trabalho de EDA era feito seguido da implementação de funções personalizadas, treinamento de modelos e avaliação dos resultados.
+A figura "Estrutura geral" ilustra como foi estruturado o trabalho durante a competição. Na verdade, a estrutra apresentada tem como objetivo ilustrar cada etapa do processo, porém não necessariamente elas foram criadas e executadas de forma sequencial. Durante os trabalhos, dependendo da necessidade, foi realizado alguma atividade ou incorporado uma nova função, assim o notebook foi crescendo à medida que os trabalhos evoluiam. Por exemplo, na tentativa de melhoria do desempenho, o trabalho de EDA era feito seguido da implementação de funções personalizadas, porém não necessariamente a função criada resultou em melhorias do desempenho. Contudo, todo o código criado foi deixado no notebook.
 
 - Estrutura geral
 	```mermaid 
@@ -94,13 +96,12 @@ A figura "Estrutura geral" ilustra como foi estruturado o trabalho durante a com
 	```
 
 
-A primeira etapa foi a análise exploratória dos dados de treinamento (EDA -  Exploratory Data Analysis) com o objetivo de se familiarizar com os dados, obter os primeiros insights e identificar as variáveis cque ontinham mais informações para predição da variável resposta. Nas primeiras análises foram utilizados pacotes de automatização que geram gráficos e tabelas sobre as variáveis estudadas e que também exportam os resultados em arquivos. Foi adotada essa estratégia de análise em arquivos, pois era mais fácil estudar o arquivo aberto em uma janela enquanto códigos de notebooks python eram trabalhados em outra janela. As bibliotecas *Pandas profiling* e *SweetViz* foram utilizadas para gerar as primeiras análises.
+A primeira etapa foi a análise exploratória dos dados de treinamento (EDA -  Exploratory Data Analysis) com o objetivo de se familiarizar com os dados, obter os primeiros insights e identificar as variáveis que continham mais informações para predição da variável resposta. Nas primeiras análises foram utilizados pacotes de automatização que geram gráficos e tabelas sobre as variáveis estudadas e que também exportam os resultados em arquivos[^1][^2]. Foi adotada essa estratégia de análise em arquivos, pois era mais fácil estudar o arquivo aberto em uma janela enquanto códigos de notebooks python eram trabalhados em outra janela. As bibliotecas *Pandas profiling* e *SweetViz* foram utilizadas para gerar as primeiras análises.
 
-pandas-profiling   
-file:///C:/Users/marcos/Documents/Work/Personal/CD01/Estudo/FLAI/21.Competicoes/DDS9/DDS9/VizData/Relat%C3%B3rio%20Automatizado.html#overview
+   
+[^1]: Arquivo gerado pelo [pandas-profiling](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/PandasProfiling.html)
+[^2]: Arquivo gerado [SweetViz](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/SweetVizCompare.html)
 
-SweetViz   
-file:///C:/Users/marcos/Documents/Work/Personal/CD01/Estudo/FLAI/21.Competicoes/DDS9/DDS9/VizData/SweetVizCompare.html
 
 Durante os estudos foi identicada uma outra competição com dados semalhantes na plataforma Kaggle, assim foi possível estudar alguns notebooks, dentre os quais um deles apresentou uma [EDA](https://www.kaggle.com/code/viveksrinivasan/eda-ensemble-model-top-10-percentile) bastante interessante. Dessa forma, foi incorporado ao projeto um conjunto de funções para plotar os dados climáticos agrupados por hora, por dia e por estação. 
 
@@ -213,6 +214,13 @@ Muito provavelmente o tratamento de outliers aplicado nesse projeto não foi fei
 
 
 Referências:
+https://www.kaggle.com/competitions/bike-sharing-demand
 Kaggle https://www.kaggle.com/code/viveksrinivasan/eda-ensemble-model-top-10-percentile
 Kaggle https://www.kaggle.com/code/mohitsital/top-10-bike-sharing-rf-gbm
+
+pandas-profiling
+https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/PandasProfiling.html#overview
+
+SweetViz
+https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/SweetVizCompare.html
 
