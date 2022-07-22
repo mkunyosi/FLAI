@@ -1,6 +1,9 @@
 
 <div id='top'/>  
 
+
+
+
 # 9ª Competição de Machine Learning FLAI
 Este repositório contém arquivos relacionados à 9ª Competição de Machine Learning realizada pela [FLAI](https://www.flai.com.br/) em junho de 2022. 
 
@@ -16,7 +19,8 @@ Conteúdo
  3. [Principais insights](#insights)
  4. [Modelo de Machine Learning](#ml_model)
  5. [Principais aprendizados](#learnings)
- 6. [Referências](#references)
+ 6. [Ideias para melhorias](#improvements) 
+ 7. [Referências](#references)
  
 *******
 <div id='comp_details'/>  
@@ -56,7 +60,7 @@ A 9ª Competição de Machine Learning foi lançada pela FLAI no final de maio d
 <div id='work_structure'/>  
 
 
-## Como o trabalho foi desenvolvido <p align="right"> [:top:](#top) </p>
+## Como o trabalho foi desenvolvido [:top:](#top) </p>
 O código desenvolvido não é usual em exemplos de machine learning. Boa parte das tarefas foram encapsulada em funções, assim o entendimento do código pode não ser simples para usuários com menos experiência em Python, ou em linguagens de programação. Para facilitar o entendimento do código, nesta introdução são explicados como o código está estruturado. Dessa forma, com um pouco de paciência, os interessados nesse código consiguirão os motivos do notebook ter tantas funções.
 
 Um ponto importante para entender o código é considerar que ele foi construído de forma *ad hoc* à medida que surgiam necessidades ao longo do projeto. Uma boa parte do código foi reutilizado em uma outra competição da FLAI, ou seja, nada saiu do zero nessa competição e muitas outras funções foram incorporadas. Por fim, houve uma reorganização do código para agrupar as funções por características para deixar o código mais coeso. 
@@ -67,6 +71,8 @@ Apesar do código parecer complexo, a ideia de fazê-lo dessa forma é exatament
 A figura "Estrutura geral" ilustra como foi estruturado o trabalho durante a competição. Na verdade, a estrutra apresentada tem como objetivo ilustrar cada etapa do processo, porém não necessariamente elas foram criadas e executadas de forma sequencial. Durante os trabalhos, dependendo da necessidade, foi realizado alguma atividade ou incorporado uma nova função, assim o notebook foi crescendo à medida que os trabalhos evoluiam. Por exemplo, na tentativa de melhoria do desempenho, o trabalho de EDA era feito seguido da implementação de funções personalizadas, porém não necessariamente a função criada resultou em melhorias do desempenho. Contudo, todo o código criado foi deixado no notebook.
 
 O código em linguagem Python desenvolvido foi dividido em dois notebooks: um para a [análise dos dados (EDA)](#2) e outro para a construção de [modelos de machine learning](#3). Para executar os notebooks foi utilizado a plataforma Google Colab.
+
+Um resumo da EDA desenvolvida pode ser lida [aqui](EDA.md).
 
 - Estrutura geral
 	```mermaid 
@@ -126,9 +132,9 @@ Identificado um bom modelo de configuração, passa-se para a etapa de "Tunagem 
 
 > Para a Tunagem do modelo foi criada uma função que encapsula a função *tune* do PyCaret e a executa para os modelos selecionadas na fase inicial de carga da configuração do Pycaret. Nos modelos testados optou-se por avaliar os cinco melhores modelos.
 
-Da etapa de tunagem também foram capturadas as métricas para avaliação dos resultados de cada algorítmo de machine learning. Dessa análise foram os escolhidos algorítmos com melhores desempenho para serem usados em misturas de algorítmos, com técnicas de *ensemble* e de *stacking*. Em geral, os melhores algorítmos foram *Light GMB* e o *Gradient Boosting*, então esses algorítmos foram usados para avaliar o desempenho das misturas. 
+Da etapa de tunagem também foram capturadas as métricas para avaliação dos resultados de cada algoritmo de machine learning. Dessa análise foram os escolhidos algoritmos com melhores desempenho para serem usados em misturas de algoritmos, com técnicas de *ensemble* e de *stacking*. Em geral, os melhores algoritmos foram *Light GMB* e o *Gradient Boosting*, então esses algoritmos foram usados para avaliar o desempenho das misturas. 
 
-Apesar de o código fazer análise da mistura de *stacking*, esse tipo de mistura de algorítmo não foi avaliado durante a competição. Somente após o término da competição é que essa parte do código foi incorporada para novas avaliações.
+Apesar de o código fazer análise da mistura de *stacking*, esse tipo de mistura de algoritmo não foi avaliado durante a competição. Somente após o término da competição é que essa parte do código foi incorporada para novas avaliações.
 
 Em paralelo aos passos até aqui descritos na construção do modelo de machine learning, sempre que uma etapa gerasse dados de desempenho do modelo, esses dados foram armazenados para avaliação posterior. A ideia dessa avaliação foi identificar o modelo que tivesse o melhor desempenho de métrica na validação cruzada e que não apresentasse evidências de overfitting. Essa análise foi feita pelo módulo "Análise de Métricas", onde além das tabelas com dados, também foram gerados alguns índices e gráficos para ajudar na identificação do melhor modelo.
 
@@ -152,9 +158,9 @@ Somente no final da competição, eliminando um tratamento para outliers os erro
 Comentando isso depois de finalizada a competição parece "óbvia" a conclusão que os dados de treinamento não poderiam ter tratamento de outliers, pois os valores "fora do padrão" eram exemplos de exceções, então deveriam ser usados no treinamento dos algoritmos. Contudo, essa constatação não foi óbvia durante a competição, pois sempre os que os outliers eram tratados as métricas na validação cruzada apresentavam melhores desempenhos.
 
 
-Finalizando a estrutura do projeto, também foram construídas funções para salvar as configurações dos modelos construídos para uso furuto, assim os modelos poderiam ser executados sem a necessidade de novos treinamentos e também utilizando todos os passos de transformações nos dados (*pipeline* criada pelo PyCaret). Contudo, dependendo do caso, ainda havia a necessidade de tratar dados de teste antes de rodar o modelo gerado pelo Pycaret[^1], mas isso ficou encapsulado por funções que avaliavam a necessidade de rodar algum função personalizada.
+Finalizando a estrutura do projeto, também foram construídas funções para salvar as configurações dos modelos construídos para uso furuto, assim os modelos poderiam ser executados sem a necessidade de novos treinamentos e também utilizando todos os passos de transformações nos dados (*pipeline* criada pelo PyCaret). Contudo, dependendo do caso, ainda havia a necessidade de tratar dados de teste antes de rodar o modelo gerado pelo Pycaret[^1], mas isso ficou encapsulado por funções que avaliavam a necessidade de rodar alguma função personalizada.
 
-[^1]: Aqui vale outra nota importante, pois esse tratamento durante a competição não estava sendo feito de forma correta. Somente com a revisão do código foi possível identificar o problema e fazer as devidas correções.
+[^1]: Aqui vale outra nota importante, pois esse tratamento da funções personalizadas durante a competição não estava sendo feito de forma correta. Somente com a revisão do código foi possível identificar o problema e fazer as devidas correções.
 
 Com o modelo salvo em arquivo do tipo *pickle*, os dados de treinamento e teste novamente eram usados para uma última análise nas métricas de desempenho. Também nessa etapa foi feita uma avaliação de predições erradas com número de aluguéis negativos. Como os algoritmos não sabiam que os números deveriam ser positivos, eventualmente algumas predições apareciam com valores negativos. Para corrigir esses valores, que eram poucos casos (menos de 20), adotou-se uma tática simples de trocar esses valores pelo menor valor observado nos dados de treinamento. Certamente essa não foi a melhor estratégia, pois poderia-se avaliar, por exemplo, os menores valores agrupados por estações, dias da semana e faixas horárias.
 
@@ -174,23 +180,30 @@ Finalizada a competição e reavaliando o que aconteceu para a melhoria de desem
 Outros fatores que também melhoraram o modelo:
 * Transformação de dados: na fase de EDA percebeu-se que os feriados tinham características semelhantes aos dias de domingo. Então foram alterados os registros de feriados para que os dias fossem domingo.
 
->>>>>> AQUI <<<<< incluir gráfico de feriado parecido com domingo
-
 * Criação de novas variáveis: baseado em [notebook encontrado no Kaggle](#8), foram criadas variáveis para conter informações de dias úteis e horas de pico que resultassem em maior número de aluguéis. Essas novas variáveis contribuiram com melhorias na métrica.
 
 * Utilização do parâmetro "feature_interaction" na configuração do Pycaret. Com esse parâmetro ativo outras variáveis foram criadas gerando melhorias no desempenho do modelo. Por exemplo, foram criadas as variáveis _"visibilidade_multiply_hora"_ e _"temperatura_multiply_hora"_, dentre algumas outras. 
 
 
-Outras tentativas, inclusive mais complexas, foram tentatas para melhorar o desempenho na competição, porém o resultado, a princípio bom na validação cruzada, não foi constatado na base de teste da competição. 
+Além do tratamento dos dados para treinamento, também foram feitas misturas de modelos, cujo objetivo era dimuinir a influência de _overfitting_ durante o treinamento dos modelos.
 
-Como no EDA percebeu-se que havia falta de dados em determinados grupos de dados, tentou-se criar uma heurística para preeencher os dados faltantes com a expectativa de melhoria do treinamento do modelo de machine learning. Por exemplo, foi detectado que não havia registros de dados, ou havia poucos registros, para uma determinada estação num dia da semana e isso possivelmente gerava uma distorção na curva de alguéis do perído. Como havia dados na "vizinhaça", tentou-se inserir registros a partir dos dados vizinhos para completar a falta de dados. 
+Durante os trabalhos da competição muitas das análises de CV foram baseadas nos dados gerados pelo PyCaret. Depois do _tunning_ de modelos, em geral, os melhores modelos eram o _LightGBM_ e o _GradientBoosting_, com RMSE bastante semelhantes. Para ter mais dados para a escolha do modelo, foi incluída uma medida para avaliar o RMSE considerando todos os dados de treinamentono modelo treinado apenas com parte desses dados. Nas análises, esse novo RMSE é identificado como _RMSE-train_.
 
+> O Pycaret, antes de treinar modelos, separa os dados de treinamento em duas partes: uma para o treinamento dos modelos com a técnica de holdout e outra para avaliar o modelo treinado.  
+> Logo após o treinamento de um modelo o PyCaret geralmente informa um RMSE que é valor o calculado na validação cruzada (CV).
+> Ao rodar a função _predict_, sem parâmetros adicionais, o valor obtido é calculado a partir dos dados separados para teste (dados não usados no treinamento).
+> É importante entender essas diferenças dos valores obtidos no PyCaret, pois é a partir deles que se pode saber se um modelo treinado está, ou não, com _overfitting_.
 
->>> AQUI <<< colocar gráfico de inverno com falta de dados e com distorção - análise para imputação de dados
+Com a nova medida do RMSE-train foi percebido que um modelo gerava um valor parecido ao RMSE após o CV e outro gerava um RMSE-train mais baixo (da ordem de 30%), sendo que geralmente o _GradientBoosting_ apresentava o RMSE-train menor. Dessa observação, gerou-se a suspeita de que o modelo havia memorizado os dados e havia perdido o poder de generalização (_overfitting_).
+
+Com a expectativa de minimizar o problema de _overfitting_, o modelo final considerava a combinação dos dois melhores modelos obtidos apos a etapa de tunagem (_LightGBM_ e _GradientBoosting_).
+
+Também foram trabalhados outros _insights_ gerados na etapa de EDA. Percebeu-se que havia falta de dados em determinados grupos de dados, tentou-se, então, criar uma heurística para preeencher os dados faltantes com a expectativa de melhoria do treinamento do modelo de machine learning. Por exemplo, foi detectado que não havia registros de dados, ou havia poucos registros, para uma determinada estação num dia da semana e isso possivelmente gerava uma distorção na curva de alguéis do perído. Como havia dados na "vizinhaça", tentou-se inserir registros a partir dos dados vizinhos para completar a falta de dados. 
 
 Outra tentativa frustrada foi tentar tratar outlier do número de alguéis segmentando os dados por variáveis, ou seja, além de avaliar os outliers na variável dependente, também foi feita uma avaliação considerando as variáveis. As figuras abaixo ilustram os dados antes e depois do tratamento de outliers.
 
->>> AQUI <<< gráficos de outliers por variável. 
+Outras tentativas, inclusive mais complexas, foram tentatas para melhorar o desempenho na competição, porém o resultado, a princípio bom na validação cruzada, não foi constatado na base de teste da competição. 
+
 
 <div id='ml_model'/>  
 
@@ -209,14 +222,13 @@ Dentre as diversas configurações avaliadas durante a competição, o conjunto 
     }
 ```
 
-Foram criadas variáveis para indicar se o dia era útil, se a hora era para demandas mais altas e trocar o dia de feriado por domingo.
+Foram criadas variáveis para indicar se o dia era útil, se a hora era para demandas mais altas e foi feita a troca do dia de feriado por domingo.
 
 Não foram feitas transformações na variável resposta antes de executar o Pycaret.
 
 Ao chamar o PyCaret, foram escolhida a opção de normalização das variáveis numéricas com o método "minmax" e foi ativada a opção para criação de variáveis a partir de multiplicação de variáveis numéricas ("feature_interaction").
 
 Dessa configuração os algoritmos com melhores resultados foram o *LightGBM* e o *GradientBoosting* misturados pela técnica de *voting*.
-
 
 
 <div id='learnings'/>  
@@ -232,6 +244,15 @@ Dessa configuração os algoritmos com melhores resultados foram o *LightGBM* e 
 * Para melhorias no desempenho das métricas geradas pelo modelos de machine learning, deve-se evitar criar novos dados a partir dos dados existentes, pois o esforço para implementar a ideia é grande, há riscos da ideia ser implementada de forma incorreta, há risco da implementação criar viéses que levarão à predições erradas. Em resumo, como há muitos riscos a serem controlados e ainda pode acontecer que alguns não sejam identificados, muito provavelmente, esse caminho não gerará bons resultados em pouco tempo.
 
 * O tratamento de outliers aplicado nesse projeto não foi feito de forma adequada. Por ora, ainda não foi possível identificar com clareza o que foi feito de forma incorreta. Então fica como "lição de casa" para este autor estudar mais sobre como outliers podem interferir nos modelos de machine learning e quando devem ser tratados. 
+
+
+<div id='improvements'/>  
+
+## Ideias para melhorias
+
+Para melhorar mais o desempenho é necessário tratar o "achatamento à esquerda", porém ainda não sei como fazer, mas tenho algumas ideias.
+
+Esse achatamento à esquerda ocorre quando a predição é alta, porém o valor deveria ser baixo. Note que há casos com diferença superior a 1000, isso prejudica bastante a métrica do RMSE.
 
 
 <div id='references'/>  
