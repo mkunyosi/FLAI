@@ -60,7 +60,7 @@ A 9ª Competição de Machine Learning foi lançada pela FLAI no final de maio d
 <div id='work_structure'/>  
 
 
-## Como o trabalho foi desenvolvido [:top:](#top) </p>
+## Como o trabalho foi desenvolvido [:top:](#top) 
 O código desenvolvido não é usual em exemplos de machine learning. Boa parte das tarefas foram encapsulada em funções, assim o entendimento do código pode não ser simples para usuários com menos experiência em Python, ou em linguagens de programação. Para facilitar o entendimento do código, nesta introdução são explicados como o código está estruturado. Dessa forma, com um pouco de paciência, os interessados nesse código consiguirão os motivos do notebook ter tantas funções.
 
 Um ponto importante para entender o código é considerar que ele foi construído de forma *ad hoc* à medida que surgiam necessidades ao longo do projeto. Uma boa parte do código foi reutilizado em uma outra competição da FLAI, ou seja, nada saiu do zero nessa competição e muitas outras funções foram incorporadas. Por fim, houve uma reorganização do código para agrupar as funções por características para deixar o código mais coeso. 
@@ -167,7 +167,7 @@ Com o modelo salvo em arquivo do tipo *pickle*, os dados de treinamento e teste 
 
 <div id='insights'/>  
 
-## Principais insights  [:top:](#top) </p>
+## Principais insights  [:top:](#top) 
 
 A dinâmica da 9ª competição foi bastante curiosa, pois havia pouco dados para analisar e o problema não era complexo. Contudo, melhorar o desempenho na classificação geral não foi uma tarefa simples.
 
@@ -207,7 +207,7 @@ Outras tentativas, inclusive mais complexas, foram tentatas para melhorar o dese
 
 <div id='ml_model'/>  
 
-## Modelo de Machine Learning  [:top:](#top) </p>
+## Modelo de Machine Learning  [:top:](#top) 
 
 Dentre as diversas configurações avaliadas durante a competição, o conjunto que gerou melhores resultados foi o seguinte:
 
@@ -233,7 +233,7 @@ Dessa configuração os algoritmos com melhores resultados foram o *LightGBM* e 
 
 <div id='learnings'/>  
  
-## Principais aprendizados  [:top:](#top) </p>
+## Principais aprendizados  [:top:](#top)
 
 * Na fase de EDA foram estudados com mais detalhes como criar gráficos usando as bibiliotecas _matplotlib.pyplot_ e _seaborn_. Mais do escolher características dos gráficos, foi explorado como obter os dados a serem usados pelos gráficos. O aprofundamento na construção de gráficos permitiu a detecção de algumas características que ajudaram a construir novas variáveis que contribuiram na melhoria da métrica.
 
@@ -248,7 +248,7 @@ Dessa configuração os algoritmos com melhores resultados foram o *LightGBM* e 
 
 <div id='improvements'/>  
 
-## Ideias para melhorias
+## Ideias para melhorias [:top:](#top) 
 
 Para melhorar mais o desempenho é necessário tratar o "achatamento à esquerda", porém ainda não sei como fazer, mas tenho algumas ideias.
 
@@ -257,7 +257,7 @@ Esse achatamento à esquerda ocorre quando a predição é alta, porém o valor 
 
 <div id='references'/>  
 
-## Referências  [:top:](#top) </p>
+## Referências  [:top:](#top) 
 <a id="1">[1]</a> 
 [Instruções da 9ª Competição de Machine Learning](https://github.com/mkunyosi/FLAI/blob/learning/DDS9/9th_competition/INSTRU%C3%87%C3%95ES%209%C2%AA%20COMPETI%C3%87%C3%83O%20DE%20MACHINE.pdf)
 
