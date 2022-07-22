@@ -13,7 +13,7 @@ A competição era sobre um problema de previsão de demanda de aluguéis de bic
 
 
 *******
-Conteúdo
+**Conteúdo**
  1. [Detalhes técnicos da competição](#comp_details)
  2. [Como o trabalho foi desenvolvido](#work_structure)
  3. [Principais insights](#insights)
