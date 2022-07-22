@@ -269,10 +269,10 @@ Notebook com análises de modelos de [ML](https://github.com/mkunyosi/FLAI/blob/
 
 
 <a id="4">[4]</a> 
-Arquivo com a análise de dados gerada pelo [Pandas Profiling](https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/EDA/PandasProfiling.html).
+Arquivo com a análise de dados gerada pelo Pandas Profiling: versão para  [download](https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/EDA/PandasProfiling.html) e versão para [visualização](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/EDA/PandasProfiling.html).
 
 <a id="5">[5]</a> 
-Arquivo com a análise de dados gerada pelo [SweetViz](https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/EDA/SweetVizCompare.html).
+Arquivo com a análise de dados gerada pelo SweetViz:versão para [download](https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/EDA/SweetVizCompare.html) e verão para [visualização](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/EDA/SweetVizCompare.html).
 
 
 <a id="6">[6]</a> 
