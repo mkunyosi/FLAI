@@ -259,20 +259,20 @@ Esse achatamento à esquerda ocorre quando a predição é alta, porém o valor 
 
 ## Referências  [:top:](#top) </p>
 <a id="1">[1]</a> 
-[Instruções da 9ª Competição de Machine Learning](https://github.com/mkunyosi/FLAI/blob/learning/DDS9/INSTRU%C3%87%C3%95ES%209%C2%AA%20COMPETI%C3%87%C3%83O%20DE%20MACHINE.pdf)
+[Instruções da 9ª Competição de Machine Learning](https://github.com/mkunyosi/FLAI/blob/learning/DDS9/9th_competition/INSTRU%C3%87%C3%95ES%209%C2%AA%20COMPETI%C3%87%C3%83O%20DE%20MACHINE.pdf)
 
 <a id="2">[2]</a> 
-Notebook com [EDA](https://github.com/mkunyosi/FLAI/blob/learning/DDS9/DDS9_EDA_fim.ipynb).
+Notebook com [EDA](https://github.com/mkunyosi/FLAI/blob/learning/DDS9/Notebooks/DDS9_EDA_fim.ipynb).
 
 <a id="3">[3]</a> 
-Notebook com análises de modelos de [ML](https://github.com/mkunyosi/FLAI/blob/learning/DDS9/DDS9_ML_fim.ipynb).
+Notebook com análises de modelos de [ML](https://github.com/mkunyosi/FLAI/blob/learning/DDS9/Notebooks/DDS9_ML_fim.ipynb).
 
 
 <a id="4">[4]</a> 
-Arquivo com a análise de dados gerada pelo [Pandas Profiling](https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/PandasProfiling.html).
+Arquivo com a análise de dados gerada pelo [Pandas Profiling](https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/EDA/PandasProfiling.html).
 
 <a id="5">[5]</a> 
-Arquivo com a análise de dados gerada pelo [SweetViz](https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/SweetVizCompare.html).
+Arquivo com a análise de dados gerada pelo [SweetViz](https://raw.githubusercontent.com/mkunyosi/FLAI/learning/DDS9/EDA/SweetVizCompare.html).
 
 
 <a id="6">[6]</a> 
