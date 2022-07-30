@@ -180,7 +180,7 @@ Finalizada a competição e reavaliando o que aconteceu para a melhoria de desem
 Outros fatores que também melhoraram o modelo:
 * Transformação de dados: na fase de EDA percebeu-se que os feriados tinham características semelhantes aos dias de domingo. Então foram alterados os registros de feriados para que os dias fossem domingo.
 
-* Criação de novas variáveis: baseado em [notebook encontrado no Kaggle](#8), foram criadas variáveis para conter informações de dias úteis e horas de pico que resultassem em maior número de aluguéis. Essas novas variáveis contribuiram com melhorias na métrica.
+* Criação de novas variáveis: baseado em [notebook encontrado no Kaggle](#8), foram criadas variáveis para conter informações de dias úteis e horas de pico que resultassem em maior número de aluguéis. Essas novas variáveis contribuíram com melhorias na métrica.
 
 * Utilização do parâmetro "feature_interaction" na configuração do Pycaret. Com esse parâmetro ativo outras variáveis foram criadas gerando melhorias no desempenho do modelo. Por exemplo, foram criadas as variáveis _"visibilidade_multiply_hora"_ e _"temperatura_multiply_hora"_, dentre algumas outras. 
 
