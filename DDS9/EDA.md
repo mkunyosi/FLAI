@@ -1,6 +1,10 @@
 
 # 9ª Competição de Machine Learning da FLAI - Análise Exploratória dos dados (EDA)
 
+Aqui são listadas observações a respeito dos dados analisados na competição, assim como os _insights_ obtidos para a etapa de construção do modelo de machine learning.
+
+Outros detalhes sobre a construção do modelo de machine learning estão [aqui](README.md).
+
 * Dados de treinamento: 4500 amostras formadas por 11 variáveis   
 
 |Variáveis| Descrição | Intervalos |     
